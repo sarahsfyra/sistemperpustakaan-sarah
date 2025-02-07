@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #dbdbc5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+main {
+    width: 90%;
+    max-width: 400px;
+    background-color: #f5f5df;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #4b4b31;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+select {
+    background-color: #fff;
+    cursor: pointer;
+}
+
+input:focus,
+select:focus {
+    border-color: #888;
+    outline: none;
+}
+
+.btn-login {
+    background-color: #d11a1a;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.btn-login:hover {
+    background-color: #b30f0f;
+}
+.divider {
+    width: 90%;
+    border: none;
+    border-top: 4px solid #bbb;
+    margin: 10px 0;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 18px; 
+    }
+
+    .user-icon {
+        width: 25px; 
+        height: 25px;
+        right: 10px; 
+    }
+
+    input,
+    select {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .btn-login {
+        padding: 8px;
+        font-size: 12px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <h1 class="awal">PERPUSTAKAAN</h1>
+    <p class="awal">SMKN 1 KOTA BEKASI</p><br>
+    <hr class="divider"><br>
+
+    <main>
+        <form action="login.php" method="post">
+            <div class="form-group">
+                <label for="email">EMAIL</label>
+                <input type="email" id="email" name="email" placeholder="Masukkan email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">PASSWORD</label>
+                <input type="password" id="password" name="password" placeholder="Masukkan password" required>
+            </div>
+            <button type="submit" class="btn-login">Login</button>
+        </form>
+        <p class="register-link">
+            Belum ada akun? <a href="register.html">Daftar di sini</a>
+        </p>
+    </main>
+</body>
+</html>
+
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const error = urlParams.get('error');
+    if (error === 'wrong_password') {
+        alert('Password salah. Silakan coba lagi.');
+    } else if (error === 'email_not_found') {
+        alert('Email tidak ditemukan. Silakan daftar terlebih dahulu.');
+    }
+</script>
